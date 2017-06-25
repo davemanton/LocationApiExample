@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ApiClient.Requests;
+using ApiClient.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +17,8 @@ namespace Website
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();
+
+	        Configuration = builder.Build();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -29,6 +28,10 @@ namespace Website
         {
             // Add framework services.
             services.AddMvc();
+
+	        services.Configure<GoogleAppSettings>(Configuration.GetSection("GoogleAppSettings"));
+
+	        services.AddTransient<IRequestFromGooglePlacesApi, GooglePlacesApiRequester>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
