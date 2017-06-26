@@ -11,11 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{28F1B4E7-2B90-455F-B887-6E44D8032000}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{198F7FDD-1EDD-4CA7-B13E-88655D7288B6}"
-	ProjectSection(SolutionItems) = preProject
-		Application.Tests\Application.Tests.csproj = Application.Tests\Application.Tests.csproj
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website.Tests", "Website.Tests\Website.Tests.csproj", "{D431F012-07E5-4429-BD54-D031961B963F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Tests", "Application.Tests\Application.Tests.csproj", "{D99A84C8-A94C-42AC-9FC9-F7A5EB7BDD7D}"

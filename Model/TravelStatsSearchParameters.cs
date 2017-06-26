@@ -6,5 +6,6 @@ namespace Model
     {
 		public string Origin { get; set; }
 		public string Destination { get; set; }
+		public UnitType? UnitType { get; set; }
 	}
 }

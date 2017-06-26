@@ -11,7 +11,8 @@ namespace ApplicationTests.ModelBuilders
 			Object = new TravelStatsSearchParameters
 			{
 				Origin = "Origin",
-				Destination = "Destination"
+				Destination = "Destination",
+				UnitType = UnitType.Metric
 			};
 
 			return this;

@@ -1,6 +1,5 @@
 ﻿using ApiClient.Requests;
 using ApiClient.Settings;
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
