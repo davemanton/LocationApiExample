@@ -1,0 +1,15 @@
+﻿@model Model.TravelStatsSearchResults
+
+@{
+	ViewData["Title"] = "Search Results";
+}
+
+<!DOCTYPE html>
+
+
+<div>
+	<p>You're journey starts at @Model.Origin</p>
+	<p>You're journey ends at @Model.Destination</p>
+	<p>You will be travelling @Model.Distance</p>
+	<p>It will take you @Model.TravelDuration</p>
+</div>

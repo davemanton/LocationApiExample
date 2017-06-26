@@ -1,5 +1,6 @@
 ﻿using ApiClient.Requests;
 using ApiClient.Settings;
+using Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +36,8 @@ namespace Website
 	        services.Configure<GoogleAppSettings>(Configuration.GetSection("GoogleAppSettings"));			
 
 	        services.AddTransient<IRequestFromGooglePlacesApi, GooglePlacesApiRequester>();
-        }
+	        services.AddTransient<ISearchForTravelStats, GoogleTravelStatsSearcher>();
+		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -59,7 +61,7 @@ namespace Website
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=PlacesSearch}/{action=Index}/{id?}");
             });
         }
     }

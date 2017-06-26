@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApiClient\ApiClient.csproj" />
+    <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 
