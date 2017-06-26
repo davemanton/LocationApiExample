@@ -7,7 +7,7 @@ namespace ApiClient.Dtos
 	{
 		public IList<string> Destination_Addresses { get; set; }
 		public IList<string> Origin_Addresses { get; set; }
-		public IList<Row> Rows { get; set; }
+		public IList<RowDto> Rows { get; set; }
 		public GoogleStatusCode Status { get; set; }
 	}
 }

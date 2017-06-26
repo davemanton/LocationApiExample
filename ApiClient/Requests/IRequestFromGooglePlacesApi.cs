@@ -6,6 +6,6 @@ namespace ApiClient.Requests
 {
 	public interface IRequestFromGooglePlacesApi
 	{
-		Task<TimeAndDistanceDto> GetTimeAndDistanceBetween(string origin, string destination, DistanceUnits units = DistanceUnits.Metric);
+		Task<TimeAndDistanceDto> GetTimeAndDistanceBetween(string origin, string destination, DistanceUnit unit = DistanceUnit.Metric);
 	}
 }

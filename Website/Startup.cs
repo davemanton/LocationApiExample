@@ -1,10 +1,12 @@
 ﻿using ApiClient.Requests;
 using ApiClient.Settings;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Website.Config;
 
 namespace Website
 {
@@ -19,6 +21,8 @@ namespace Website
                 .AddEnvironmentVariables();
 
 	        Configuration = builder.Build();
+
+			Mapping.Initialize();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -27,9 +31,9 @@ namespace Website
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc();			
 
-	        services.Configure<GoogleAppSettings>(Configuration.GetSection("GoogleAppSettings"));
+	        services.Configure<GoogleAppSettings>(Configuration.GetSection("GoogleAppSettings"));			
 
 	        services.AddTransient<IRequestFromGooglePlacesApi, GooglePlacesApiRequester>();
         }

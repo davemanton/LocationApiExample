@@ -1,6 +1,6 @@
 namespace ApiClient.Enums
 {
-	public enum DistanceUnits
+	public enum DistanceUnit
 	{
 		Metric,
 		Imperial

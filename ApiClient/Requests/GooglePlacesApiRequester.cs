@@ -20,10 +20,10 @@ namespace ApiClient.Requests
 		    _googleApiKey = appSettings.GoogleApiKey;
 	    }
 
-	    public async Task<TimeAndDistanceDto> GetTimeAndDistanceBetween(string origin, string destination, DistanceUnits units = DistanceUnits.Metric)
+	    public async Task<TimeAndDistanceDto> GetTimeAndDistanceBetween(string origin, string destination, DistanceUnit unit = DistanceUnit.Metric)
 	    {
 		    var uri = $"{GOOGLE_MAPS_API_URL}/distancematrix/json" +
-		              $"?units={units}" +
+		              $"?unit={unit}" +
 		              $"&origins={FormatQueryParameter(origin)}" +
 		              $"&destinations={FormatQueryParameter(destination)}" +
 		              $"&key={_googleApiKey}";

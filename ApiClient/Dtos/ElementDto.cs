@@ -2,7 +2,7 @@
 
 namespace ApiClient.Dtos
 {
-	public class Element
+	public class ElementDto
 	{
 		public TextValueDto Distance { get; set; }
 		public TextValueDto Duration { get; set; }
