@@ -1,6 +1,8 @@
 ﻿using ApiClient.Requests;
 using ApiClient.Settings;
 using Application;
+using Application.TravelSearchers;
+using Application.TravelSearchers.GoogleSearchers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -37,6 +39,8 @@ namespace Website
 
 	        services.AddTransient<IRequestFromGooglePlacesApi, GooglePlacesApiRequester>();
 	        services.AddTransient<ISearchForTravelStats, GoogleTravelStatsSearcher>();
+	        services.AddTransient<ISearchForNearbyPlaces, GoogleNearbyPlacesSearcher>();
+	        services.AddTransient<ISearchForTravelInfo, TravelInfoSearcher>();
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

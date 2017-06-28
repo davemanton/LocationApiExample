@@ -1,14 +1,15 @@
 ﻿using ApiClient.Dtos;
 using ApiClient.Enums;
 using ApiClient.Requests;
-using Application;
-using ApplicationTests.DtoBuilders;
-using ApplicationTests.ModelBuilders;
+using Application.Tests.DtoBuilders;
+using Application.Tests.ModelBuilders;
+using Application.TravelSearchers;
+using Application.TravelSearchers.GoogleSearchers;
 using Model;
 using Moq;
 using Website.Config;
 
-namespace ApplicationTests
+namespace Application.Tests.TravelSearchers.GoogleSearchers
 {
 	internal class GoogleTravelStatsSearcherTestWrapper
 	{

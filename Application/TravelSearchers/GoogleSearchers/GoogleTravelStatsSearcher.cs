@@ -1,12 +1,11 @@
 ﻿using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using ApiClient.Enums;
 using ApiClient.Requests;
 using AutoMapper;
 using Model;
 
-namespace Application
+namespace Application.TravelSearchers.GoogleSearchers
 {
 	public class GoogleTravelStatsSearcher : ISearchForTravelStats
     {

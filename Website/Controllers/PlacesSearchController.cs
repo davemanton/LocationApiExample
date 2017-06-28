@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Application;
+using Application.TravelSearchers;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 
@@ -7,12 +7,12 @@ namespace Website.Controllers
 {
     public class PlacesSearchController : Controller
     {
-	    private readonly ISearchForTravelStats _travelStatsSearcher;
+	    private readonly ISearchForTravelInfo _travelInfoSearcher;
 
-	    public PlacesSearchController(ISearchForTravelStats travelStatsSearcher)
-	    {
-		    _travelStatsSearcher = travelStatsSearcher;
-	    }
+		public PlacesSearchController(ISearchForTravelInfo travelInfoSearcher)
+		{
+			_travelInfoSearcher = travelInfoSearcher;
+		}
 
 	    public IActionResult Index()
         {
@@ -21,9 +21,9 @@ namespace Website.Controllers
 
 	    public async Task<IActionResult> SearchResults(TravelStatsSearchParameters searchParameters)
 	    {
-		    var searchResults = await _travelStatsSearcher.Search(searchParameters);	
+		    var travelInfo = await _travelInfoSearcher.Search(searchParameters);
 
-		    return View(searchResults);
+		    return View(travelInfo);
 	    }
 
         public IActionResult Error()

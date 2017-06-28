@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using ApiClient.Dtos;
 
-namespace ApplicationTests.DtoBuilders
+namespace Application.Tests.DtoBuilders
 {
 	internal class RowDtoBuilder
 	{

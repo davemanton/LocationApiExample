@@ -31,7 +31,26 @@ namespace ApiClient.Requests
 		    return await Get<TimeAndDistanceDto>(uri);
 	    }
 
-	    private string FormatQueryParameter(string parameter)
+	    public async Task<GooglePlacesTextSearchDto> GetPlacesByTextSearch(string queryString)
+	    {
+		    var uri = $"{GOOGLE_MAPS_API_URL}/place/textsearch/json" +
+		              $"?query={queryString}" +
+		              $"&key={_googleApiKey}";
+
+		    return await Get<GooglePlacesTextSearchDto>(uri);
+	    }
+
+	    public async Task<GooglePlacesNearbySearchDto> GetPlacesByNearbySearch(double latitude, double longitude, int radius = 1000)
+	    {
+		    var uri = $"{GOOGLE_MAPS_API_URL}/place/nearbysearch/json" +
+		              $"?location={latitude},{longitude}" +
+		              $"&radius={radius}" +
+		              $"&key={_googleApiKey}";
+
+			return await Get<GooglePlacesNearbySearchDto>(uri);
+	    }		
+
+		private string FormatQueryParameter(string parameter)
 	    {
 		    return Regex.Replace(parameter, @"\s", "+");
 	    }				

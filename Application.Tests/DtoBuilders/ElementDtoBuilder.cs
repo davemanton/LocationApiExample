@@ -2,7 +2,7 @@
 using ApiClient.Dtos;
 using ApiClient.Enums;
 
-namespace ApplicationTests.DtoBuilders
+namespace Application.Tests.DtoBuilders
 {
 	internal class ElementDtoBuilder
 	{

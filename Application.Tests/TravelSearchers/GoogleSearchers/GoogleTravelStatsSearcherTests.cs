@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using Moq;
 
-namespace ApplicationTests
+namespace Application.Tests.TravelSearchers.GoogleSearchers
 {
 	[TestClass]
 	public class GoogleTravelStatsSearcherTests

@@ -1,6 +1,6 @@
 ﻿using Model;
 
-namespace ApplicationTests.ModelBuilders
+namespace Application.Tests.ModelBuilders
 {
 	internal class TravelStatsSearchParametersBuilder
 	{
