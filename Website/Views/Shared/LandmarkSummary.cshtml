@@ -1,0 +1,24 @@
+﻿@using System.Linq
+@model Model.Landmark
+
+	@{
+		string PhotoUrl = string.Empty;
+		if (Model.Photos != null && Model.Photos.Any())
+		{
+			PhotoUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + @Model.Photos.First().PhotoReference + "&key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU";
+		}
+		else
+		{
+			PhotoUrl = "../images/PlaceholderLandmarkPhoto.jpg";
+		}
+
+		var active = (bool)ViewData["Active"];
+	}
+	
+	<div class="item @if (active) { @("active"); }">		
+		<div role="option">
+			<h5>@Model.Name, @Model.Area</h5>
+			<img class="landmark-image" src="@PhotoUrl" />
+			<h5>Rating: @Model.Rating.ToString("N1")</h5>
+		</div>
+	</div>

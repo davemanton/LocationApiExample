@@ -7,23 +7,42 @@ body {
 }
 
 #background {
-	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
 	height: 100% !important;
 	width: 100% !important;
-
+	
 	background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=53.480506,-2.23687&zoom=14&size=640x640&sensor=false&key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU');
 	background-position: center;
+	background-attachment: fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
-	overflow: hidden
 }
 
 .search-container {
-	margin-top: 50px;
+	margin-top: 5em;
 }
 
 .search-form {
-	margin-top: 50px;	
+	margin-top: 5em;	
+}
+
+.travel-wrapper {
+	margin-top: 5em;
+	background-color: rgba(255, 255, 255, 0.6);
+	padding: 4em;
+}
+
+.travel-info-container {
+	padding: 1em;
+}
+
+.landmark-image {
+	display: block;
+	max-width: 100%;
+	max-height: 300px;
+	margin: auto;
 }
 
 /* Wrapping element */
@@ -61,4 +80,8 @@ textarea {
 
 .center-div {
 	margin: auto;
+}
+
+.item {
+	padding: 0.5em;'
 }

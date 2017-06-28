@@ -1,4 +1,5 @@
-﻿@using Model
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using Model
 @model TravelStatsSearchParameters
 
 	@{
@@ -9,45 +10,18 @@
 		<div class="row col-sm-6">
 			<img src="images/BuildingBlocks.png" alt="Building Blocks" />
 		</div>
-		@Html.Partial("SearchForm");
+		<div class="row col-sm-6 col-xs-12">
+			@Html.Partial("SearchForm");			
+		</div>
 	</div>
 
 @section Scripts{
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU&libraries=places"></script>
 
-	<script type="text/javascript">
-		var options = {
-			componentRestrictions: {
-				country: 'gb'
-			}
-		}
+	<script type="text/javascript" src="js/GoogleAutoComplete.js"></script>
+	<script type="text/javascript" src="js/GoogleMapsBackground.js"></script>
 
-		var originInput = document.getElementById("origin-input");
-		var autocomplete = new google.maps.places.Autocomplete(originInput, options);
 
-		var destinationInput = document.getElementById("destination-input");
-		var autocomplete = new google.maps.places.Autocomplete(destinationInput, options);
-	</script>
-
-		<script>
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(updateMap);
-			} else {
-				updateMap();
-			}
-
-			function updateMap(position) {
-
-				var latlon = position != null ? position.coords.latitude + "," + position.coords.longitude : "53.480506,-2.23687";
-
-				var imgUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=1920x1080&sensor=false&key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU";
-
-				$(document).ready(function () {
-					$('#background').css('background-image', "url('" + imgUrl + "')");
-					$('#background').css('background-size', "cover");
-				});
-			}
-		</script>
 	}
 
 
