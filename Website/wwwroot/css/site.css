@@ -1,6 +1,29 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+#background {
+	display: block;
+	height: 100% !important;
+	width: 100% !important;
+
+	background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=53.480506,-2.23687&zoom=14&size=640x640&sensor=false&key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow: hidden
+}
+
+.search-container {
+	margin-top: 50px;
+}
+
+.search-form {
+	margin-top: 50px;	
 }
 
 /* Wrapping element */

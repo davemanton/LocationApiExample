@@ -1,36 +1,54 @@
 ﻿@using Model
-@model Model.TravelStatsSearchParameters
+@model TravelStatsSearchParameters
+
 	@{
 		ViewData["Title"] = "Travel Search";
 	}
 
-<div class="row">
-	<img src="images/BuildingBlocks.png" class="col-sm-6" alt="Building Blocks" />
-	<div class="row">
-		<div class="col-sm-6">
-			<h4 class="col-sm-12">Plan your next adventure...</h4>
-			<form asp-action="SearchResults" method="post" class="form-horizontal" role="form">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group col-xs-12">
-							<input id="origin-input" asp-for="Origin" class="form-control col-xs-10" placeholder="Start" class="" />
-						</div>
-						<div class="form-group col-xs-12">
-							<input asp-for="Destination" class="form-control col-xs-12" placeholder="Destination" />
-						</div>
-					</div>
-					<div class="form-group col-xs-12">
-						<div class="col-xs-4">
-							<select asp-for="UnitType" asp-items="Html.GetEnumSelectList<UnitType>()" class="form-control"></select>
-						</div>
-						<div class="col-xs-6">
-							<input type="submit" class="btn btn-primary" value="Take the next step" />
-						</div>
-					</div>
-				</div>
-			</form>
+	<div class="container search-container">
+		<div class="row col-sm-6">
+			<img src="images/BuildingBlocks.png" alt="Building Blocks" />
 		</div>
+		@Html.Partial("SearchForm");
 	</div>
-</div>
+
+@section Scripts{
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU&libraries=places"></script>
+
+	<script type="text/javascript">
+		var options = {
+			componentRestrictions: {
+				country: 'gb'
+			}
+		}
+
+		var originInput = document.getElementById("origin-input");
+		var autocomplete = new google.maps.places.Autocomplete(originInput, options);
+
+		var destinationInput = document.getElementById("destination-input");
+		var autocomplete = new google.maps.places.Autocomplete(destinationInput, options);
+	</script>
+
+		<script>
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(updateMap);
+			} else {
+				updateMap();
+			}
+
+			function updateMap(position) {
+
+				var latlon = position != null ? position.coords.latitude + "," + position.coords.longitude : "53.480506,-2.23687";
+
+				var imgUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=1920x1080&sensor=false&key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU";
+
+				$(document).ready(function () {
+					$('#background').css('background-image', "url('" + imgUrl + "')");
+					$('#background').css('background-size', "cover");
+				});
+			}
+		</script>
+	}
+
 
 
