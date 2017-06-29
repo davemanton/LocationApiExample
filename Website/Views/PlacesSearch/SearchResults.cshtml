@@ -70,7 +70,7 @@
 	</div>
 
 @section Scripts{
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU&libraries=places"></script>
 	@if (Model.TravelStats != null)
 	{
 		<script> var imgUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" + "@(Model.TravelStats.Destination)" + "&zoom=14&size=1920x1080&sensor=false&key=AIzaSyD2lln26f5wLuV-SEGaIG6G2kRykEQ5gEU";
@@ -84,7 +84,7 @@
 	}
 	else
 	{
-		<script type="text/javascript" src="js/GoogleAutoComplete.js"></script>
-		<script type="text/javascript" src="js/GoogleMapsBackground.js"></script>
+		<script type="text/javascript" src="~/js/GoogleAutoComplete.js"></script>
+		<script type="text/javascript" src="~/js/GoogleMapsBackground.js"></script>
 	}
 }
