@@ -30,8 +30,19 @@ Using the google API is a great example of why I do this.  For example if I want
 
 ### Unit Testing ###
 
-In general I prefer to write code TDD where possible.  This project uses test wrappers and test classes with Microsoft Testing Framework.  Although it is possible to do setup of tests within the test class itself, I often find for practicality a test wrapper can be very useful as I can have the setup code in one window and the tests next to it in another window.
+This project uses test wrappers and test classes with Microsoft Testing Framework.  Although it is possible to do setup of tests within the test class itself, I often find for practicality a test wrapper can be very useful as I can have the setup code in one window and the tests next to it in another window.
 
-In the wrapper, I setup data for the test in the constructor, mocks in the GetClassUnderTest method and then if these properties are made available to the test I can adjust them as required.  The aim of the test wrapper is to create the ideal 'happy path' conditions for the class, individual tests can adjust these to test specific circumstances.
+In the wrapper, I setup data for the test in the constructor, mocks in the GetClassUnderTest method and then if these properties are made available to the test I can adjust them as required.  The aim of the test wrapper is to create the ideal 'happy path' conditions for the implementation class, individual tests can adjust these to test specific circumstances.
 
 In tests, by changing properties after calling the wrapper constructor, I can adjust what the mocks will respond with.  Although reference types don't require this, it is much simpler if your mock returns a primitive type.  Mock can also be adjusted by changing the setup after the GetClassUnderTest method is called.  This way of setting up tests has allowed me a great deal of flexibility in setting up different circumstances in a simple framework.
+
+
+### ApiClient ###
+
+The ApiClient has been written to make interfacing with the Google API simpler.  In other projects, I would probably have broken this out and turned it into a Nuget package.  I have created Data Transfer Objects to attempt to match the JSON structure that Google sends back results in, I appreciate I may not have covered all bases here, but I was only using a fraction of the data.
+
+I have created a generic base for calling the API.  This is a class I use in other projects, which means the inherited API calling implementation can be made quite simple and simply pass an URL and the parameters to the base class to make the call.  It can be extended to include other types of call.  
+
+The interface can then be made available to the application and implemented with dependency injection, allowing a simple client to be created for accessing the API.
+
+Mapping from DTOs to the Model has been achieved with AutoMapper.  I tend to tend individual mappings in Application tests, although this can be a belt and braces approach, as I have also included the general AutoMapper config verification test.
